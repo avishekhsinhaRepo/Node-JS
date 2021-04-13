@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
+const routingDebug = require("debug")('app:router');
 const courses = [
     { id: 1, name: 'Node' },
     { id: 2, name: 'Java' },
@@ -16,7 +16,7 @@ router.get('/:id', (req, res) => {
         res.status(404);
         res.send("Course Not Found");
     }
-    console.log(course);
+    routingDebug(course);
     res.send(JSON.stringify(course));
 });
 

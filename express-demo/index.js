@@ -1,4 +1,6 @@
 const express = require('express');
+const debug = require("debug")('app:start');
+
 const loggingMiddleWare = require('./middleware/logging-middleware');
 const auth = require('./middleware/authentication');
 const courses = require('./routes/courses');
@@ -18,4 +20,5 @@ app.use('/', home);
 const port = process.env.PORT | 3000;
 app.listen(port, () => {
     console.log(`Listening on ${port}`);
+    debug("Application Running!");
 });
