@@ -11,6 +11,14 @@ router.get('/',(req,res,next)=>{
   console.log(adminData.products);
   //res.sendFile(path.join(rootDir,"views","shop.html"));
   const products = adminData.products;
-  res.render('shop',{prods:products,'docTitle':'Shop','viewName':'shop'});
+  res.render('shop',
+    { prods:products,
+      'pageTitle':'Shop',
+      'viewName':'shop',
+      'hasProduct' :products.length >0,
+      'formCSS':false,
+      'productCSS':true,
+      'activeShop':true
+    });
  });
 module.exports=router;
